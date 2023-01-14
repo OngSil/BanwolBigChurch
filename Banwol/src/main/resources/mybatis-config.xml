@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+        
+        <!-- Camel Case, Snake Case로만 다를 경우 resultMap을 안 써도 이 코드 쓰면 알아서 바꿔줌 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    <typeAliases>	
+    	<typeAlias alias="About"   type="banwol.com.domain.About"/>
+    	<typeAlias alias="History" type="banwol.com.domain.History"/>
+    	<typeAlias alias="News" type="banwol.com.domain.News"/>
+    	<typeAlias alias="Sermon" type="banwol.com.domain.Sermon"/>
+    	<typeAlias alias="Contact" type="banwol.com.domain.Contact"/>
+    	<typeAlias alias="Album" type="banwol.com.domain.Album"/>
+ 
+    	<typeAlias alias="ContactVo" type="banwol.com.vo.ContactVo"/>
+    	<typeAlias alias="NewsVo" type="banwol.com.vo.NewsVo"/>
+    </typeAliases>
+ 
+     
+   
+   <mappers>
+    	
+   </mappers>
+   
+   
+
+</configuration>
+

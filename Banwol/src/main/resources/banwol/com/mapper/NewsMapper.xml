@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banwol.com.mapper.NewsMapper">
+	<select id="getNewsList"  resultType="News">
+	    select * from bnwl_news
+	</select>	
+	
+	<select id="getNewsDetails"  resultType="NewsVo" parameterType="int">
+		select * from bnwl_news where SEQ_NO = #{seqNo}
+	</select>	
+	
+	<select id="getNextSeqNo"  resultType="int">
+		select ifnull(max(SEQ_NO)+1, 1) from bnwl_news
+	</select>	
+	
+	<insert id="newsWrite"  parameterType="NewsVo">
+		insert
+		  into bnwl_news
+		values (
+			#{seqNo}
+		  , #{subject}
+		  , #{contents}
+		  , #{image}
+		  , 'admin'
+		  , now()
+		  , 0
+		  , false
+		)
+	</insert>	
+	
+	<update id="modifyNews" parameterType="NewsVo">
+		update bnwl_news
+		   set subject = #{subject}
+		     , contents = #{contents}
+		     , image = #{image} 
+		     , user_id = 'admin'
+		     , inquiry_cnt = 0
+		     , attachments = false
+		where seq_no = #{seqNo}
+	</update>
+	
+	<delete id="deleteNews" parameterType="int">
+		delete from bnwl_news where seq_no = #{seqNo}
+	</delete>
+</mapper>
+
+
+	

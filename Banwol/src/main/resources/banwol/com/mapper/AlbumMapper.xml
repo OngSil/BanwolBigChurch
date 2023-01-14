@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banwol.com.mapper.AlbumMapper">
+	<select id="getThumbnailAlbum"  resultType="Album">
+		<![CDATA[
+			select * from bnwl_album where seq_no between 1 and 6 order by seq_no
+		]]>
+	</select>	
+
+	<select id="getAllAlbum"  resultType="Album">
+		<![CDATA[
+			select * from bnwl_album where seq_no > 6 order by seq_no
+		]]>
+	</select>	
+</mapper>
+
+
+	
